@@ -63,7 +63,7 @@ class Main
                         break;
 
                 default : 
-                            System.out.println("Error : Wrong Choice Entered ");
+                            System.out.println("Error : Invalid input !!!! ");
 
             }
         }
@@ -121,8 +121,8 @@ class PackerX
 
     public void PackFile(String FilePath)
     {
-        byte Header[] = new byte[100];                      //will contain the files Absolutepath and length of the data in the file
-        byte Buffer[] = new byte[1024];                    //
+        byte Header[] = new byte[100];                      // It contains the Absolute path of the file and length of the data in the file
+        byte Buffer[] = new byte[1024];                    
         
         int length = 0;
 
@@ -133,7 +133,7 @@ class PackerX
         String temp = FilePath+" "+fobj.length();
         //String temp = FilePath;
 
-        System.out.println("The length of the string when FilePath and files data length is added is : "+temp.length());
+        System.out.println("The length of the string when FilePath and file's data size is added : "+temp.length());
 
         //Adding white spaces to the string temp which will further converted into the 100 bytes Header
         for(int i = temp.length(); i < 100; i++)
@@ -141,7 +141,7 @@ class PackerX
             temp = temp + " ";
         }
 
-        System.out.println("The length of the String ' temp ' when WhiteSpaces is added to it along with FilePath and files data is : "+temp.length());
+        System.out.println("The length of the String ' temp ' when WhiteSpaces is added to it along with FilePath and file data is : "+temp.length());
 
         Header = temp.getBytes();
         System.out.println("The length of the Header in bytes when converted from the String is : "+Header.length);
@@ -198,9 +198,6 @@ class UnpackerX
             {
                 //convert the data writen from file from bytes to string
                 String str = new String(Header);
-
-                //Herer we get files absulute path and lengthof data in the file as a whole string
-                //so find a extension in string form where we would recive only the files name and length of the data in the file
                 
                 String ext = str.substring(str.lastIndexOf("/"));
                 System.out.println("The extension string got is  : " + ext);
@@ -214,17 +211,17 @@ class UnpackerX
                 //split this string data into array of string 
                 String arr[] = ext.split("\\s");
 
-                //Now we have in a array name of file at begin index and length of file in the next index
+                //Now we have a array name of file at start index and length of file in the next index
                 //we assign the name of the file to new String 'name' 
                 String name = arr[0];
 
-                //we convert the length from string to integer
+                //converting the length from string to integer
                 int size = Integer.parseInt(arr[1]);
 
-                //Now we create new file from the packed File using FileOutputStream class
+                //creating new file from the packed File using FileOutputStream class
                 FileOutputStream outstream = new FileOutputStream( name );
 
-                ///now we will read the data from the file in the newly created file
+                ///read the data from the file in the newly created file
                 byte buffer[] = new byte[size];
 
                 instream.read(buffer);
