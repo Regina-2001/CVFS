@@ -1,6 +1,4 @@
-/*
-Writting a appkicationn to design the front end for the File packer Unpacker Project
-*/
+
 import java.lang.*;
 import java.util.*;
 import java.awt.*;
@@ -32,7 +30,6 @@ class Window
 
     public Window()         //default constructor of class Window
     {
-        //jyachi survat J pasun hotey e.g JFrame is part of swing
         JFrame f = new JFrame(" Marvellous Login ");
 
         JButton bobj = new JButton(" Submit ");
@@ -268,9 +265,6 @@ class UnpackerX
             {
                 //convert the data writen from file from bytes to string
                 String str = new String(Header);
-
-                //Herer we get files absulute path and lengthof data in the file as a whole string
-                //so find a extension in string form where we would recive only the files name and length of the data in the file
                 
                 String ext = str.substring(str.lastIndexOf("/"));
                 System.out.println("The extension string got is  : " + ext);
