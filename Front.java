@@ -196,7 +196,7 @@ class PackerX
         String temp = FilePath+" "+fobj.length();
         //String temp = FilePath;
 
-        System.out.println("The length of the string when FilePath and files data length is added is : "+temp.length());
+        System.out.println("The length of the string when FilePath and datasize of file is added : "+temp.length());
 
         //Adding white spaces to the string temp which will further converted into the 100 bytes Header
         for(int i = temp.length(); i < 100; i++)
@@ -204,7 +204,7 @@ class PackerX
             temp = temp + " ";
         }
 
-        System.out.println("The length of the String ' temp ' when WhiteSpaces is added to it along with FilePath and files data is : "+temp.length());
+        System.out.println("The length of the String ' temp ' when WhiteSpaces is added to it along with FilePath and datasize is : "+temp.length());
 
         Header = temp.getBytes();
         System.out.println("The length of the Header in bytes when converted from the String is : "+Header.length);
